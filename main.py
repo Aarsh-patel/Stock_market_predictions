@@ -69,8 +69,7 @@ rsi = RSIIndicator(df['Close']).rsi()
 # Set up main app #
 ###################
 ke = predict(df)
-ran = random.randint(0,1)
-if ran==1:
+if np.average(ke['Close'][-160:]) > np.average(ke['Close'][240:-160]):
   st.success(f"The model predicts that the price of {option} may increase in the following times.")
 else:
   st.error(f"The model predicts that the price of {option} may decrease in the following times.")
