@@ -10,7 +10,7 @@ from ta.trend import MACD,sma_indicator
 from ta.momentum import RSIIndicator
 import datetime
 
-model = tf.keras.models.load_model('/content/drive/MyDrive/Intel SIP/Crypto_Guides/Time_Sereies_model.h5')
+model = tf.keras.models.load_model('Time_Sereies_model.h5')
 def predict(df):
   ke = dict()
   pre = [None for i in df['Close'][:-160]]
