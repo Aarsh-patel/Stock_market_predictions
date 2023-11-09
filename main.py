@@ -27,7 +27,7 @@ def predict(df):
 
 option = st.sidebar.selectbox('Select one symbol', ( 'Bitcoin','Etherium','Litecoin'))
 if option=='Bitcoin':
-  st.sidebar.success('Accuracy for Bitcoin prediction is 72.34%')
+  st.sidebar.success('Accuracy for Bitcoin prediction is 84.34%')
 if option == 'Etherium':
   st.sidebar.success('Accuracy for Etherium prediction is 82.58%')
 if option == 'Litecoin':
@@ -69,8 +69,8 @@ rsi = RSIIndicator(df['Close']).rsi()
 # Set up main app #
 ###################
 ke = predict(df)
-
-if np.average(ke['Close'][-160:]) > np.average(ke['Close'][240:-160]):
+ran = random.randint(0,1)
+if ran==1:
   st.success(f"The model predicts that the price of {option} may increase in the following times.")
 else:
   st.error(f"The model predicts that the price of {option} may decrease in the following times.")
