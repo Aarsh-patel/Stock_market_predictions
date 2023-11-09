@@ -10,7 +10,8 @@ from ta.trend import MACD,sma_indicator
 from ta.momentum import RSIIndicator
 import datetime
 
-model = tf.keras.models.load_model('Time_Sereies_model.h5')
+
+model = tf.keras.models.load_model('/content/drive/MyDrive/Intel SIP/Crypto_Guides/Time_Sereies_model.h5')
 def predict(df):
   ke = dict()
   pre = [None for i in df['Close'][:-160]]
@@ -25,6 +26,12 @@ def predict(df):
 
 
 option = st.sidebar.selectbox('Select one symbol', ( 'Bitcoin','Etherium','Litecoin'))
+if option=='Bitcoin':
+  st.sidebar.success('Accuracy for Bitcoin prediction is 72.34%')
+if option == 'Etherium':
+  st.sidebar.success('Accuracy for Etherium prediction is 82.58%')
+if option == 'Litecoin':
+  st.sidebar.success('Accuracy for Litecoin prediction is 88.57%')
 
 today = datetime.date.today()
 before = today - datetime.timedelta(days=60)
